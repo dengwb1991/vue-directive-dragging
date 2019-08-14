@@ -1,0 +1,1 @@
+console.log('Implementing a drag-and-drop plugin based on the vue directive')
