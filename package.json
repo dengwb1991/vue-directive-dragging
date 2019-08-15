@@ -4,7 +4,7 @@
   "description": "Implementing a drag-and-drop plugin based on the vue directive",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build/build.js"
   },
   "repository": {
     "type": "git",
@@ -13,10 +13,35 @@
   "keywords": [
     "dragging"
   ],
-  "author": "",
+  "author": "dengwb",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dengwb1991/vue-directive-dragging/issues"
   },
-  "homepage": "https://github.com/dengwb1991/vue-directive-dragging#readme"
+  "homepage": "https://github.com/dengwb1991/vue-directive-dragging#readme",
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-istanbul": "^5.0.1",
+    "babel-plugin-transform-object-assign": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-polyfill": "^6.22.0",
+    "babel-preset-env": "^1.5.1",
+    "eslint": "^4.15.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "eslint-plugin-vue": "^4.0.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-watch": "^4.3.1",
+    "uglify-js": "^3.6.0"
+  }
 }
