@@ -1,3 +1,3 @@
 <template>
-  <div>11111</div>
+  <div v-dragging>11111</div>
 </template>
