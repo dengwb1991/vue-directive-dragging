@@ -1,8 +1,8 @@
 {
   "name": "vue-directive-dragging",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Implementing a drag-and-drop plugin based on the vue directive",
-  "main": "index.js",
+  "main": "./dist/vue-directive-dragging.min.js",
   "scripts": {
     "dev": "cross-env webpack-dev-server --inline --config ./build/webpack.dev.config.js",
     "build": "node build/build.js"
