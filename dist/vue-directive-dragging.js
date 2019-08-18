@@ -1,5 +1,5 @@
 /**
- * vue-directive-dragging v0.0.2
+ * vue-directive-dragging v0.0.3
  * (c) 2019 dengwb
  * @license MIT
  */
@@ -8,6 +8,20 @@
   typeof define === 'function' && define.amd ? define(factory) :
   (global.VueDirectiveDragging = factory());
 }(this, (function () { 'use strict';
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
 
   var events = {
     on: function on(el, type, fn) {
@@ -22,9 +36,10 @@
     var _el = null;
     var diffTop = null;
     var diffLeft = null;
+    var value = {};
 
     function handleDragStart(event) {
-      event.preventDefault();
+      value.prevent && event.preventDefault();
       diffLeft = event.touches[0].pageX - _el.offsetLeft;
       diffTop = event.touches[0].pageY - _el.offsetTop;
     }
@@ -38,6 +53,9 @@
     }
     function saveDragItem(el, binding, vnode) {
       _el = el;
+      value = _extends({
+        prevent: true
+      }, binding.value);
       events.on(el, 'touchstart', handleDragStart);
       events.on(el, 'touchmove', handleDragMove);
     }
@@ -58,7 +76,7 @@
 
   var index = {
     install: install,
-    version: '0.0.2'
+    version: '0.0.3'
   };
 
   return index;
