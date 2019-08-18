@@ -12,9 +12,10 @@ function install (Vue, options) {
   let isTouch = true
   let diffTop = null
   let diffLeft = null
+  let value = {}
 
   function handleDragStart (event) {
-    event.preventDefault()
+    value.prevent && event.preventDefault()
     diffLeft = event.touches[0].pageX - _el.offsetLeft
     diffTop = event.touches[0].pageY - _el.offsetTop
   }
@@ -28,6 +29,10 @@ function install (Vue, options) {
   }
   function saveDragItem (el, binding, vnode) {
     _el = el
+    value = {
+      prevent: true,
+      ...binding.value
+    }
     events.on(el, 'touchstart', handleDragStart)
     events.on(el, 'touchmove', handleDragMove)
   }
