@@ -1,6 +1,6 @@
 {
   "name": "vue-directive-dragging",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Implementing a drag-and-drop plugin based on the vue directive",
   "main": "./dist/vue-directive-dragging.min.js",
   "scripts": {

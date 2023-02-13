@@ -1,6 +1,6 @@
 /**
- * vue-directive-dragging v0.0.3
- * (c) 2019 dengwb
+ * vue-directive-dragging v0.0.4
+ * (c) 2023 dengwb
  * @license MIT
  */
 var _extends = Object.assign || function (target) {
@@ -48,7 +48,7 @@ function install(Vue, options) {
   function saveDragItem(el, binding, vnode) {
     _el = el;
     value = _extends({
-      prevent: true
+      prevent: binding.prevent === false ? false : true
     }, binding.value);
     events.on(el, 'touchstart', handleDragStart);
     events.on(el, 'touchmove', handleDragMove);
@@ -70,7 +70,7 @@ function install(Vue, options) {
 
 var index = {
   install: install,
-  version: '0.0.3'
+  version: '0.0.4'
 };
 
 export default index;

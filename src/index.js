@@ -30,7 +30,7 @@ function install (Vue, options) {
   function saveDragItem (el, binding, vnode) {
     _el = el
     value = {
-      prevent: true,
+      prevent: binding.prevent === false ? false : true,
       ...binding.value
     }
     events.on(el, 'touchstart', handleDragStart)

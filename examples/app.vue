@@ -1,8 +1,18 @@
 <template>
   <div class="drag-dom"
-       v-dragging></div>
+       @click="$_click"
+       v-dragging="{ prevent: false }"></div>
 </template>
 
+<script>
+export default {
+  methods: {
+    $_click () {
+      console.log(111)
+    }
+  }
+}
+</script>
 <style>
 body {
   position: relative;
