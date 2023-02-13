@@ -1,5 +1,5 @@
 /**
- * vue-directive-dragging v0.0.4
+ * vue-directive-dragging v0.0.5
  * (c) 2023 dengwb
  * @license MIT
  */
@@ -39,6 +39,7 @@ function install(Vue, options) {
   }
 
   function handleDragMove(event) {
+    event.preventDefault();
     var left = event.touches[0].pageX - diffLeft;
     var top = event.touches[0].pageY - diffTop;
 
@@ -70,7 +71,7 @@ function install(Vue, options) {
 
 var index = {
   install: install,
-  version: '0.0.4'
+  version: '0.0.5'
 };
 
 export default index;

@@ -1,7 +1,76 @@
 <template>
-  <div class="drag-dom"
+  <div class="content-box">
+    <div class="drag-dom"
        @click="$_click"
        v-dragging="{ prevent: false }"></div>
+    1111
+    1111
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    1111
+    1111
+    1111
+    1111
+    1111
+    1111
+    1111
+    1111
+    1111
+    1111
+  </div>
+
 </template>
 
 <script>
@@ -17,6 +86,9 @@ export default {
 body {
   position: relative;
   user-select: none;
+}
+.content-box {
+
 }
 .drag-dom {
   width: 100px;

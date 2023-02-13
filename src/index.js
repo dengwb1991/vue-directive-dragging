@@ -21,6 +21,7 @@ function install (Vue, options) {
   }
 
   function handleDragMove (event) {
+    event.preventDefault()
     const left = event.touches[0].pageX - diffLeft
     const top =  event.touches[0].pageY - diffTop
 
