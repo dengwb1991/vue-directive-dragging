@@ -1,5 +1,5 @@
 /**
- * vue-directive-dragging v0.0.5
+ * vue-directive-dragging v0.0.6
  * (c) 2023 dengwb
  * @license MIT
  */
@@ -32,52 +32,55 @@
     }
   };
 
+  var _el = null;
+  var diffTop = null;
+  var diffLeft = null;
+  var value = {};
+
+  function handleDragStart(event) {
+    value.prevent && event.preventDefault();
+    diffLeft = event.touches[0].pageX - _el.offsetLeft;
+    diffTop = event.touches[0].pageY - _el.offsetTop;
+  }
+
+  function handleDragMove(event) {
+    event.preventDefault();
+    var left = event.touches[0].pageX - diffLeft;
+    var top = event.touches[0].pageY - diffTop;
+
+    _el.style.left = left + 'px';
+    _el.style.top = top + 'px';
+  }
+  function saveDragItem(el, binding, vnode) {
+    _el = el;
+    value = _extends({
+      prevent: binding.prevent === false ? false : true
+    }, binding.value);
+    events.on(el, 'touchstart', handleDragStart);
+    events.on(el, 'touchmove', handleDragMove);
+  }
+
+  function updateDragItem(el, binding, vnode) {}
+
+  function removeDragItem(el, binding, vnode) {
+    events.off(el, 'touchstart', handleDragStart);
+    events.off(el, 'touchmove', handleDragMove);
+  }
+
+  var draggingDirective = {
+    bind: saveDragItem,
+    update: updateDragItem,
+    unbind: removeDragItem
+  };
+
   function install(Vue, options) {
-    var _el = null;
-    var diffTop = null;
-    var diffLeft = null;
-    var value = {};
-
-    function handleDragStart(event) {
-      value.prevent && event.preventDefault();
-      diffLeft = event.touches[0].pageX - _el.offsetLeft;
-      diffTop = event.touches[0].pageY - _el.offsetTop;
-    }
-
-    function handleDragMove(event) {
-      event.preventDefault();
-      var left = event.touches[0].pageX - diffLeft;
-      var top = event.touches[0].pageY - diffTop;
-
-      _el.style.left = left + 'px';
-      _el.style.top = top + 'px';
-    }
-    function saveDragItem(el, binding, vnode) {
-      _el = el;
-      value = _extends({
-        prevent: binding.prevent === false ? false : true
-      }, binding.value);
-      events.on(el, 'touchstart', handleDragStart);
-      events.on(el, 'touchmove', handleDragMove);
-    }
-
-    function updateDragItem(el, binding, vnode) {}
-
-    function removeDragItem(el, binding, vnode) {
-      events.off(el, 'touchstart', handleDragStart);
-      events.off(el, 'touchmove', handleDragMove);
-    }
-
-    Vue.directive('dragging', {
-      bind: saveDragItem,
-      update: updateDragItem,
-      unbind: removeDragItem
-    });
+    Vue.directive('dragging', draggingDirective);
   }
 
   var index = {
     install: install,
-    version: '0.0.5'
+    draggingDirective: draggingDirective,
+    version: '0.0.6'
   };
 
   return index;

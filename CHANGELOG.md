@@ -1,3 +1,18 @@
+## 0.0.6
+2023-06-07
+
+支持 vue.extend 组件引入使用
+
+```js
+import dragging from 'vue-directive-dragging'
+
+let D3KitConstrutor = Vue.extend({
+  directives: {
+    dragging: dragging.draggingDirective
+  }
+})
+```
+
 ## 0.0.5
 2023-02-13
 
